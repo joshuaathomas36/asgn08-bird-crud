@@ -22,40 +22,22 @@
       </tr>
 
 
-<?php
-$parser = new ParseCSV(PRIVATE_PATH . '/wnc-birds.csv');
-$bird_array = $parser->parse();
-// echo '<pre>';
-// print_r($bird_array);
-// echo '</pre>';
-//exit();
-?>
+<?php $birds = Bird::find_all(); ?>
 
-
-
-      <?php foreach($bird_array as $args) { ?>
-     <?php  $bird = new Bird($args);   ?>
+      <?php foreach($birds as $bird) { ?>
       <tr>
-        <td><?php echo $bird->common_name; ?></td>
-        <td><?= $bird->habitat; ?></td>
-        <td><?= $bird->food; ?></td>
-        <td><?= $bird->nest_palcement; ?></td>
-        <td><?= $bird->behavior; ?></td>
-        <td><?php echo $bird->conservation(); ?></td>
-        <td><?= $bird->backyard_tips; ?></td>
+        <td><?php echo h($bird->common_name); ?></td>
+        <td><?= h($bird->habitat); ?></td>
+        <td><?= h($bird->food); ?></td>
+        <td><?= h($bird->nest_palcement); ?></td>
+        <td><?= h($bird->behavior); ?></td>
+        <td><?php echo h($bird->conservation()); ?></td>
+        <td><?= h($bird->backyard_tips); ?></td>
+        <td><a href="detail.php?id=<?php echo $bird->id; ?>">View</a></td>
       </tr>
-<?php } ?>
+      <?php } ?>
+
     </table>
-
-    <?php
-
-      // This code is from the PDO tutorial from asgn05
-
-      $stmt = $database->query("SELECT * FROM birds");
-      while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        echo 'Name: ' . $row['common_name'] . '<br>';
-      }
-    ?>
   </div>
 
 </div>
