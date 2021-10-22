@@ -1,2 +1,4 @@
 private/db_credentials.php
 private/.DS_Store
+.vscode
+.gitignore

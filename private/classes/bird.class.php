@@ -1,6 +1,8 @@
 <?php
 
- class Bird {
+ class Bird extends DatabaseObject {
+    static protected $table_name = 'birds';
+    static protected $db_columns = ['id', 'common_name', 'habitat', 'food', 'nest_palcement', 'behavior', 'conservation_id', 'backyard_tips'];
 
     public $common_name;
     public $habitat;
@@ -36,6 +38,18 @@
             return "Unknown";
         }
     }
+
+    protected function validate() {
+        $this->errors = [];
+    
+        if(is_blank($this->brand)) {
+          $this->errors[] = "Brand cannot be blank.";
+        }
+        if(is_blank($this->model)) {
+          $this->errors[] = "Model cannot be blank.";
+        }
+        return $this->errors;
+      }
 
 
 }
