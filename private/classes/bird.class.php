@@ -45,15 +45,25 @@
     }
 
     protected function validate() {
-        $this->errors = [];
+      $this->errors = [];
     
-        if(is_blank($this->common_name)) {
-          $this->errors[] = "Brand cannot be blank.";
-        }
-        if(is_blank($this->habitat)) {
-          $this->errors[] = "Model cannot be blank.";
-        }
-        return $this->errors;
+      if(is_blank($this->common_name)) {
+        $this->errors[0] = "Common Name cannot be blank.";
+      }
+      if(is_blank($this->habitat)) {
+        $this->errors[1] = "Habitat cannot be blank.";
+      }
+      if(is_blank($this->food)) {
+        $this->errors[2] = "Food cannot be blank.";
+      }
+      if(is_blank($this->nest_palcement)) {
+        $this->errors[3] = "Nest Placement cannot be blank.";
+      }
+      if(is_blank($this->behavior)) {
+        $this->errors[4] = "Behavior cannot be blank.";
+      }
+
+      return $this->errors;
     }
 
 

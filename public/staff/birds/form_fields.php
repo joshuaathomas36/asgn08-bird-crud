@@ -8,27 +8,27 @@ if(!isset($bird)) {
 
 <dl>
   <dt>Common Name</dt>
-  <dd><input type="text" name="bird[common_name]" value="<?php echo h($bird->common_name); ?>" /></dd>
+  <dd><input type="text" name="bird[common_name]" value="<?php echo h($bird->common_name); ?>" /><?php echo $bird->errors[0] ?? ''; ?></dd>
 </dl>
 
 <dl>
   <dt>Habitat</dt>
-  <dd><input type="text" name="bird[habitat]" value="<?php echo h($bird->habitat); ?>" /></dd>
+  <dd><input type="text" name="bird[habitat]" value="<?php echo h($bird->habitat); ?>" /><?php echo $bird->errors[1] ?? ''; ?></dd>
 </dl>
 
 <dl>
   <dt>Food</dt>
-  <dd><input type="text" name="bird[food]" value="<?php echo h($bird->food); ?>" /></dd>
+  <dd><input type="text" name="bird[food]" value="<?php echo h($bird->food); ?>" /><?php echo $bird->errors[2] ?? ''; ?></dd>
 </dl>
 
 <dl>
   <dt>Nest Placement</dt>
-  <dd> <input type="text" name="bird[nest_palcement]" value="<?php echo h($bird->nest_palcement); ?>" /></dd>
+  <dd> <input type="text" name="bird[nest_palcement]" value="<?php echo h($bird->nest_palcement); ?>" /><?php echo $bird->errors[3] ?? ''; ?></dd>
 </dl>
 
 <dl>
   <dt>Behavior</dt>
-  <dd> <input type="text" name="bird[behavior]" value="<?php echo h($bird->behavior); ?>" /></dd>
+  <dd> <input type="text" name="bird[behavior]" value="<?php echo h($bird->behavior); ?>" /><?php echo $bird->errors[4] ?? ''; ?></dd>
 </dl>
 
 <dl>
