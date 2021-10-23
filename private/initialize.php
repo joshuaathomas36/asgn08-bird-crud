@@ -28,8 +28,9 @@
   require_once('database_functions.php');
   require_once('validation_functions.php');
   
+  include('classes/databaseobject.class.php');
   include('classes/bird.class.php');
-  require_once('classes/databaseobject.class.php');
+  
   // Autoload class definitions
 
   function my_autoload($class) {

@@ -11,9 +11,9 @@
     public $nest_palcement;
     public $behavior;
     public $backyard_tips;
-    protected $conservation_id;
+    public $conservation_id;
 
-    protected const CONSERVATION_OPTIONS = [ 
+    public const CONSERVATION_OPTIONS = [ 
         1 => "Low concern",
         2 => "Medium concern",
         3 => "High concern",
@@ -40,17 +40,21 @@
         }
     }
 
+    public function name() {
+        return "{$this->common_name}";
+    }
+
     protected function validate() {
         $this->errors = [];
     
-        if(is_blank($this->brand)) {
+        if(is_blank($this->common_name)) {
           $this->errors[] = "Brand cannot be blank.";
         }
-        if(is_blank($this->model)) {
+        if(is_blank($this->habitat)) {
           $this->errors[] = "Model cannot be blank.";
         }
         return $this->errors;
-      }
+    }
 
 
 }
